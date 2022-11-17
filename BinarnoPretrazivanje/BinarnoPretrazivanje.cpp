@@ -28,10 +28,7 @@ int main() {
     f = fopen("brojevi.txt", "r");
     fb = fopen("brojevi.dat", "w+");
 
-    while (fscanf(f, "%d", &br) != EOF) {
-        fwrite(&br, sizeof(int), 1, fb);
-        printf("%d ", br);
-    }
+    // Ovdje napisati kod
 
     fclose(f);
     fclose(fb);
