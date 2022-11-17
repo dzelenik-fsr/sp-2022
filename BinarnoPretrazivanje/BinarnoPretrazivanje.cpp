@@ -16,11 +16,9 @@ int trazi(int trazeni)
         // Ovdje pisati kod
         printf("\nTrazim u a[%2d:%2d], a[%2d]=%2d", poc, kraj, sredina, br);
 
-    } while (!pronadjen && poc <= kraj);
+    } while (poc <= kraj);
 
-    if (pronadjen)
-        return 1;
-    return 0;
+    return pronadjen ? 1 : 0;
 }
 
 int main() {
