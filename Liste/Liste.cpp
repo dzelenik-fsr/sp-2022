@@ -14,13 +14,6 @@ cvor* novicvor(int broj) {
 	return pom;
 }
 
-void ispis(cvor* glava) {
-	while (glava != NULL) {
-		printf("\n%d", glava->broj);
-		glava = glava->sljed;
-	}
-}
-
 // Zadatak 1
 int dodaj(cvor* glava, int broj) {
 	// Ovdje pisati kod
@@ -45,8 +38,38 @@ void uvecaj(cvor* glava, int p) {
 	// Ovdje pisati kod
 }
 
+void ispis(cvor* glava) {
+	cvor* pom = glava;
+	printf("\n*glava\n%#4c\n  ", 25);
+	while (pom != NULL) {
+		printf("%#2d %c ", pom->broj, 26);
+		pom = pom->sljed;
+	}
+	printf("NULL");
+	printf("\nBroj elemenata: %d\n", brojElemenata(glava));
+}
 
 void main() {
-	cvor* glava = NULL;
+	int br;
+	cvor* glava = 0;
 	glava = novicvor(2);
+	dodaj(glava, 3);
+	dodaj(glava, 15);
+
+	printf("# Lista");
+	ispis(glava);
+
+	br = 10;
+	printf("\n# Dodaj %d", br);
+	dodaj(glava, br);
+	ispis(glava);
+
+	printf("\n# Izbrisi prvi");
+	izbrisiPrvi(&glava);
+	ispis(glava);
+
+	br = 3;
+	printf("\n# Uvecaj sve za %d", br);
+	uvecaj(glava, br);
+	ispis(glava);
 }
