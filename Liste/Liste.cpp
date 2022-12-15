@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct c {
@@ -35,6 +35,24 @@ int izbrisiPrvi(cvor** glava) {
 
 // Zadatak 4
 void uvecaj(cvor* glava, int p) {
+	// Ovdje pisati kod
+}
+
+// Zadatak 5 - Napisati funkciju koja spaja dvije liste M i L.
+// Rezultate je lista M' koja sadrži sve čvorove liste M, iza kojih slijede čvorovi liste L
+void spoji(cvor* glavaM, cvor* glavaL) {
+	// Ovdje pisati kod
+}
+
+// Zadatak 6
+// Napisati rekurzivnu funkciju koja računa elemenata u listi
+void brojCvorovaR(cvor* glava) {
+	// Ovdje pisati kod
+}
+
+// Zadatak 7
+// Napisati program koji mijenja dva čvora u listi (ne samo vrijednost)
+void zamjena(cvor* glava, int a, int b) {
 	// Ovdje pisati kod
 }
 
