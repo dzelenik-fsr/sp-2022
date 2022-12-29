@@ -109,10 +109,18 @@ void ispisiDatoteku(FILE* f)
 // Zadatak 1
 int brojZapisa(FILE* f)
 {
-	zapis pretinac[C]{};
+	zapis pretinac[C];
 	int br = 0;
-	// Ovdje pisati kod
-
+	for (int i = 0; i < M; i++)
+	{
+		fseek(f, i * BLOK, SEEK_SET);
+		fread(pretinac, sizeof(pretinac), 1, f);
+		for (int j = 0; j < C; j++)
+		{
+			if (pretinac[j].sifra != 0)
+				br++;
+		}
+	}
 	return br;
 }
 
@@ -120,25 +128,39 @@ int brojZapisa(FILE* f)
 int pronadji(FILE* f, int sifra) {
 	int i = adresa(sifra);
 	int poc = i;
-	zapis pom[C]{};
-	// Ovdje pisati kod
 
+	zapis pom[C];
+	do {
+		fread(pom, sizeof(pom), 1, f);
+		for (int j = 0; j < C; j++)
+		{
+			if (pom[j].sifra == sifra)
+				return 1;
+		}
+		poc = (poc + 1) % M;
+	} while (poc != i);
 	return 0;
 }
 
 // Zadatak 3
 float gustoca(const char* ime_datoteke)
 {
-	// Ovdje pisati kod
 	return 0.0;
 }
 
 // Zadatak 4
 void format(FILE* f)
 {
-	zapis pom[C]{};
+	zapis pom[C];
 
-	// Ovdje pisati kod
+	for (int j = 0; j < C; j++)
+		pom[j].sifra = 0;
+
+	for (int i = 0; i < M; i++)
+	{
+		fseek(f, i * BLOK, SEEK_SET);
+		fwrite(pom, sizeof(pom), 1, f);
+	}
 }
 
 int main()
